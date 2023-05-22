@@ -58,10 +58,9 @@ function App() {
           onDragOver={handleDragOver}
       >
         <SortableContext items={items} strategy={horizontalListSortingStrategy}>
-          <Sortable id={items[0]}></Sortable>
-          <Sortable id={items[1]}></Sortable>
-          <Sortable id={items[2]}></Sortable>
-          <Sortable id={items[3]}></Sortable>
+          {items.map(x => (
+              <Sortable id={x}/>
+          ))}
         </SortableContext>
         <DragOverlay>
           {activeId ? <Sortable id={activeId}/> : null}
